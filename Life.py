@@ -14,8 +14,21 @@ GRAY = (128, 128, 128)
 WINDOW_SIZE = (500, 500)    # píxeles
 FPS = 60                    # 60 cuadros por segundo
 
-
 # Inicializar la ventana de Pygame
 pygame.init()
 screen = pygame.display.set_mode(WINDOW_SIZE) # la pantalla se muestra con el tamaño indicado
 pygame.display.set_caption("Life by BytePunk")
+
+# Creación de matriz (50x50) de 0's y 1's aleatorios para representar las celdas
+GRID_SIZE = (50, 50)
+GRID = np.random.randint(2, size=GRID_SIZE)
+
+
+
+
+
+
+
+# Bucle infinito para pruebas
+while True:
+    pass
