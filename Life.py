@@ -85,7 +85,21 @@ def update_grid():
     GRID = new_grid
 
 
-# Bucle infinito para pruebas
+# Bucle principal del juego
+
+# Creamos un objeto clock para controlar la velocidad de actualización del juego:
+clock = pygame.time.Clock()
+
+# Dentro del bucle
 while True:
+    # Se actualiza la pantalla y posteriormente se dibuja
     update_grid()
     draw_grid()
+
+    # Actualizar la pantalla 
+    pygame.display.update()
+    
+    # y esperar la siguiente iteración
+    clock.tick(FPS)
+    # el método tick espera el tiempo suficiente para que el juego se actualice a la velocidad deseada
+    
