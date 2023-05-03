@@ -103,3 +103,9 @@ while True:
     clock.tick(FPS)
     # el método tick espera el tiempo suficiente para que el juego se actualice a la velocidad deseada
     
+
+    # Manejar los eventos del usuario
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            quit()
