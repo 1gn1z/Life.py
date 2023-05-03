@@ -33,28 +33,28 @@ def update_grid():
     for i in range(GRID_SIZE[0]):
         for j in range(GRID_SIZE[1]):
             
-                        # Se calcula el número de vecinos vivos que tiene cada celda
-                        # Se obtiene una submatriz de 3x3 centrada en la celda actual
-                        # Se usa max y min para asegurarse de no salirse de los límites de la matriz GRID
-                        neighbors = np.sum(GRID[max(0, i-1):min(i+2, GRID_SIZE[0]), max(0, j-1):min(j+2, GRID_SIZE[1])]) - GRID[i,j]
+            # Se calcula el número de vecinos vivos que tiene cada celda
+            # Se obtiene una submatriz de 3x3 centrada en la celda actual
+            # Se usa max y min para asegurarse de no salirse de los límites de la matriz GRID
+            neighbors = np.sum(GRID[max(0, i-1):min(i+2, GRID_SIZE[0]), max(0, j-1):min(j+2, GRID_SIZE[1])]) - GRID[i,j]
 
 
-                        # Se aplican las reglas del juego
+            # Se aplican las reglas del juego
                         
-                        # 1. Si una célula está viva y tiene 2 o 3 vecinos vivos, sobrevive. SI NO (si tiene solo 1 vecino vivo) muere por SOLEDAD.
-                        # 2. Si una célula está viva y tiene MÁS de 3 vecinos vivos muere por SOBREPOBLACIÓN.
-                        # 3. Si una célula MUERTA tiene exactamente 3 vecinos vivos revive. SI NO continua muerta.
+            # 1. Si una célula está viva y tiene 2 o 3 vecinos vivos, sobrevive. SI NO (si tiene solo 1 vecino vivo) muere por SOLEDAD.
+            # 2. Si una célula está viva y tiene MÁS de 3 vecinos vivos muere por SOBREPOBLACIÓN.
+            # 3. Si una célula MUERTA tiene exactamente 3 vecinos vivos revive. SI NO continua muerta.
                         
                         
-                        # Estas reglas se pueden resumir en 2 condiciones:
+            # Estas reglas se pueden resumir en 2 condiciones:
                         
-                        # Si una célula viva tiene 2 o 3 vecinos vivos, sobrevive:
-                        if GRID[i, j] == 1 and neighbors in (2, 3):
-                            new_grid[i, j] = 1
+            # Si una célula viva tiene 2 o 3 vecinos vivos, sobrevive:
+            if GRID[i, j] == 1 and neighbors in (2, 3):
+                new_grid[i, j] = 1
                             
-                        # Si una célula está muerta y tiene exactamente 3 vecinos vivos, revive:
-                        elif GRID[i, j] == 1 and neighbors == 3:
-                            new_grid[i, j] = 1
+            # Si una célula está muerta y tiene exactamente 3 vecinos vivos, revive:
+            elif GRID[i, j] == 0 and neighbors == 3:
+                new_grid[i, j] = 1
 
     # Se actualiza la matriz GRID con la nueva matriz
     GRID = new_grid
